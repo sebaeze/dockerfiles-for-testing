@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "637f601fb56fc2cfe7bf7887"
+  },
+  "nombre": "Sebastian",
+  "apellido": "Andreoletti",
+  "compania": "IBM"
+},{
+  "_id": {
+    "$oid": "637f603eb56fc2cfe7bf7888"
+  },
+  "nombre": "mandale",
+  "apellido": "fruta",
+  "compania": "superMega"
+}
+,{
+  "nombre": "Pepe",
+  "apellido": "Gonzalez",
+  "compania": "Supermercado"
+}
+]
