@@ -1,5 +1,5 @@
 #
-cd /home/dev/GITHUB/dockerfiles-for-testing/hello-world-nodejs
+cd /home/dev/GITHUB/dockerfiles-for-testing
 #
 podman login -u andreole             quay.io
 podman login -u andreole@ar.ibm.com  registry.redhat.io
@@ -7,8 +7,9 @@ podman login -u andreole@ar.ibm.com  registry.redhat.io
 # mongodb
 #
 podman pull registry.redhat.io/rhscl/mongodb-36-rhel7
-podman stop mongod && podman rm   mongod
 podman volume create mongodb-demo
+#
+podman stop mongod && podman rm   mongod
 #
 # Sin volumen
 podman run -d -p 27017:27017 --name mongod -e  MONGODB_USER=demo -e MONGODB_PASSWORD=123456 -e MONGODB_DATABASE=demo -e  MONGODB_ADMIN_PASSWORD=123456    registry.redhat.io/rhscl/mongodb-36-rhel7
@@ -21,7 +22,8 @@ podman build --layers=false  -t quay.io/andreole/demo-docker:1.0 -f hello-world-
 #
 podman images
 # 
-podman run --name demo-docker -p 3000:3000 -d quay.io/andreole/demo-docker:1.0
+podman stop demo-docker && podman rm   demo-docker
+podman run --name demo-docker -p 3002:3002 -d quay.io/andreole/demo-docker:1.0 && podman ps
 #
 http://127.0.0.1:3000/
 #
